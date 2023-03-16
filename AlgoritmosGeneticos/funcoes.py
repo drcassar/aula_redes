@@ -1,18 +1,6 @@
 import random
 
 
-def funcao_objetivo_cb(individuo):
-    """Computa a função objetivo no problema das caixas binárias.
-    
-    Args:
-      individiuo: lista contendo os genes das caixas binárias
-    
-    Return:
-      Um valor representando a soma dos genes do individuo.
-    """
-    return sum(individuo)
-
-
 def gene_cb():
     """Gera um gene válido para o problema das caixas binárias
     
@@ -69,6 +57,24 @@ def selecao_roleta_max(populacao, fitness):
     """
     populacao_selecionada = random.choices(populacao, weights=fitness, k=len(populacao))
     return populacao_selecionada
+
+
+def cruzamento_ponto_simples(pai, mae):
+    """Operador de cruzamento de ponto simples.
+    
+    Args:
+      pai: uma lista representando um individuo
+      mae : uma lista representando um individuo
+    
+    Returns:
+      Duas listas, sendo que cada uma representa um filho dos pais que foram os argumentos.
+    """
+    ponto_de_corte = random.randint(1, len(pai) - 1)
+    
+    filho1 = pai[:ponto_de_corte] + mae[ponto_de_corte:]
+    filho2 = mae[:ponto_de_corte] + pai[ponto_de_corte:]
+    
+    return filho1, filho2
 
 
 def funcao_objetivo_cb(individuo):
