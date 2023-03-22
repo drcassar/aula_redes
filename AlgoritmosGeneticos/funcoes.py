@@ -211,13 +211,12 @@ def selecao_torneio_min(populacao, fitness, tamanho_torneio=3):
 
     # vamos fazer len(populacao) torneios! Que comecem os jogos!
     for _ in range(len(populacao)):
-        escolhidos = random.sample(par_populacao_fitness, tamanho_torneio)
+        combatentes = random.sample(par_populacao_fitness, tamanho_torneio)
 
-        minimo_fitness = float(
-            "inf"
-        )  # é assim que se escreve infinito em python
+        # é assim que se escreve infinito em python
+        minimo_fitness = float("inf")
 
-        for par_individuo_fitness in escolhidos:
+        for par_individuo_fitness in combatentes:
             individuo = par_individuo_fitness[0]
             fit = par_individuo_fitness[1]
 
