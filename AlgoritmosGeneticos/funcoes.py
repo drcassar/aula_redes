@@ -17,7 +17,6 @@ def gene_cb():
     return gene
 
 
-# NOVIDADE
 def gene_cnb(valor_max_caixa):
     """Gera um gene válido para o problema das caixas não-binárias
 
@@ -32,7 +31,6 @@ def gene_cnb(valor_max_caixa):
     return gene
 
 
-# NOVIDADE
 def gene_letra(letras):
     """Sorteia uma letra.
 
@@ -67,7 +65,6 @@ def individuo_cb(n):
     return individuo
 
 
-# NOVIDADE
 def individuo_cnb(n_genes, valor_max_caixa):
     """Gera um individuo para o problema das caixas não-binárias.
 
@@ -86,7 +83,6 @@ def individuo_cnb(n_genes, valor_max_caixa):
     return individuo
 
 
-# NOVIDADE
 def individuo_senha(tamanho_senha, letras):
     """Cria um candidato para o problema da senha
 
@@ -128,7 +124,6 @@ def populacao_cb(tamanho, n):
     return populacao
 
 
-# NOVIDADE
 def populacao_cnb(tamanho, n_genes, valor_max_caixa):
     """Cria uma população no problema das caixas não-binárias.
 
@@ -147,7 +142,6 @@ def populacao_cnb(tamanho, n_genes, valor_max_caixa):
     return populacao
 
 
-# NOVIDADE
 def populacao_inicial_senha(tamanho, tamanho_senha, letras):
     """Cria população inicial no problema da senha
 
@@ -188,7 +182,6 @@ def selecao_roleta_max(populacao, fitness):
     return populacao_selecionada
 
 
-# NOVIDADE
 def selecao_torneio_min(populacao, fitness, tamanho_torneio=3):
     """Faz a seleção de uma população usando torneio.
 
@@ -197,7 +190,7 @@ def selecao_torneio_min(populacao, fitness, tamanho_torneio=3):
 
     Args:
       populacao: população do problema
-      fun_objetivo: função objetivo
+      fitness: lista com os valores de fitness dos individuos da população
       tamanho_torneio: quantidade de invidiuos que batalham entre si
 
     Returns:
@@ -274,7 +267,6 @@ def mutacao_cb(individuo):
     return individuo
 
 
-# NOVIDADE
 def mutacao_cnb(individuo, valor_max_caixa):
     """Realiza a mutação de um gene no problema das caixas não-binárias
 
@@ -292,7 +284,6 @@ def mutacao_cnb(individuo, valor_max_caixa):
     return individuo
 
 
-# NOVIDADE
 def mutacao_senha(individuo, letras):
     """Realiza a mutação de um gene no problema da senha.
 
@@ -325,7 +316,6 @@ def funcao_objetivo_cb(individuo):
     return sum(individuo)
 
 
-# NOVIDADE
 def funcao_objetivo_cnb(individuo):
     """Computa a função objetivo no problema das caixas não-binárias.
 
@@ -338,7 +328,6 @@ def funcao_objetivo_cnb(individuo):
     return sum(individuo)
 
 
-# NOVIDADE
 def funcao_objetivo_senha(individuo, senha_verdadeira):
     """Computa a funcao objetivo de um individuo no problema da senha
 
@@ -380,7 +369,6 @@ def funcao_objetivo_pop_cb(populacao):
     return fitness
 
 
-# NOVIDADE
 def funcao_objetivo_pop_cnb(populacao):
     """Calcula a funcao objetivo para todos os membros de uma população
 
@@ -397,7 +385,6 @@ def funcao_objetivo_pop_cnb(populacao):
     return fitness
 
 
-# NOVIDADE
 def funcao_objetivo_pop_senha(populacao, senha_verdadeira):
     """Computa a funcao objetivo de uma populaçao no problema da senha.
 
