@@ -63,8 +63,17 @@ def computa_mochila(individuo, objetos, ordem_dos_nomes):
       valor_total: valor total dos itens da mochila em unidades de dinheiros.
       peso_total: peso total dos itens da mochila em unidades de massa.
     """
-
-    "vamos preencher aqui"
+    
+    valor_total = 0
+    peso_total = 0
+    
+    for pegou_o_item_ou_nao, nome_do_item in zip(individuo, ordem_dos_nomes):
+        if pegou_o_item_ou_nao == 1:
+            valor_do_item = objetos[nome_do_item]["valor"]
+            peso_do_item = objetos[nome_do_item]["peso"]
+            
+            valor_total = valor_total + valor_do_item
+            peso_total = peso_total + peso_do_item
 
     return valor_total, peso_total
 
@@ -566,11 +575,13 @@ def funcao_objetivo_mochila(individuo, objetos, limite, ordem_dos_nomes):
       Valor total dos itens inseridos na mochila considerando a penalidade para
       quando o peso excede o limite.
     """
-
-    "vamos preencher aqui"
-
-    pass
-
+    
+    valor_mochila, peso_mochila = computa_mochila(individuo, objetos, ordem_dos_nomes)
+    
+    if peso_mochila > limite:
+        return 0.01
+    else:
+        return valor_mochila
 
 
 ###############################################################################
